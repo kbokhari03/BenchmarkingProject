@@ -41,3 +41,16 @@ To install MAAFT, run the following shell command in your terminal:
 ```bash
 conda install -c bioconda mafft
 ```
+
+Clustal Omega:
+To install Clustal Omega, run the following shell command in your terminal:
+```bash
+conda install -c bioconda clustalo
+```
+
+Kalign: 
+To install Kaling, run the following shell command in your terminal:
+```bash
+conda install bioconda::kalign2
+```
+
