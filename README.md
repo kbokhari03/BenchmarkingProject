@@ -8,8 +8,9 @@ Conda and BioConda:
 We highly recommend installing Conda and Bioconda for our benchmarking repo.  
 
 Conda Installation Instructions:
-In your terminal window, run the following command:
+In your terminal window, run the following commands:
 ```bash
+curl -O https://repo.anaconda.com/archive/Anaconda3-2026.07-1-Linux-x86_64.sh
 bash Anaconda-latest-Linux-x86_64.sh
 ```
 Note: For this benchmarking project, the full Anaconda Distribution was installed. Miniconda should work  for this as well, however, the instructions are being written with the full Anaconda distribution in mind
