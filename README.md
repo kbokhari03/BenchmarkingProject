@@ -56,4 +56,13 @@ To install Kaling, run the following shell command in your terminal:
 ```bash
 conda install bioconda::kalign2
 ```
+Snakemake:
+Our benchmarking project uses Snakemake to run all the alignment tests via one simple Snakemake file. To install Snakemake via conda, run the following command:
+```bash
+conda create -c conda-forge -c bioconda -c nodefaults -n snakemake snakemake
+```
+You will have to activate snakemake environment afterwards to run our snakemake file:
+```bash
+conda activate snakemake
+```
 
