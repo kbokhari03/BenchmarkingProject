@@ -30,4 +30,14 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
+Muscle: 
+To install Muscle, run the following shell command in your terminal:
+```bash
+conda install -c bioconda muscle
+```
 
+MAAFT:
+To install MAAFT, run the following shell command in your terminal:
+```bash
+conda install -c bioconda mafft
+```
