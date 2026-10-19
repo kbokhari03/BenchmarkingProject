@@ -22,8 +22,10 @@ Bioconda:
 Before installing Bioconda, verify that Conda is properly installed.
 
 After verifying that Conda is installed, run these shell commands in the terminal.
+```bash
 conda config --add channels bioconda
 conda config --add channels conda-forge
 conda config --set channel_priority strict
+```
 
 
