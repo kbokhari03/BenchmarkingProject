@@ -92,4 +92,12 @@ To run Clustal Omega, type in your bash shell:
 ```bash
 clustalo -i input.fasta -o aligned_output.fasta
 ````
-The -i 
+The -i refers to the input file, the -o refers to the output tag
+
+Kalign: 
+To run Kalign, type in your bash shell:
+```bash
+kalign -i input.fasta -o output.fasta
+```
+The -i refers to the input file, the -o refers to your output file
+
