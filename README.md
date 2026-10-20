@@ -101,3 +101,10 @@ kalign -i input.fasta -o output.fasta
 ```
 The -i refers to the input file, the -o refers to your output file
 
+Snakefile:
+Our snakemake file will call all the MSAs on our balibase unaligned fasta file and output a text file with benchmarking stats for each alignment it performs. NOTE: Snakemake file is still a work in progress and is not completed as of yet. 
+
+To run our snakemake file on any input data you would like to test, move the files into our input file folder, and then enter the following bash commmand:
+```bash
+snakemake
+```
