@@ -1,5 +1,6 @@
 # BenchmarkingProject
 Repo for benchmarking various different MSA programs
+
 Hello! This README will include instruction on installing all the MSA alignment programs and other dependencies necessary for running our project! 
 
 This project will require the user to download various MSA programs. Instructions to installing the various MSA programs are listed as follows:
@@ -53,7 +54,7 @@ conda install -c bioconda clustalo
 ```
 
 Kalign: 
-To install Kaling, run the following shell command in your terminal:
+To install Kalign, run the following shell command in your terminal:
 ```bash
 conda install bioconda::kalign2
 ```
@@ -66,4 +67,29 @@ You will have to activate a snakemake environment afterwards to run our snakemak
 ```bash
 conda activate snakemake
 ```
+Instructions for Running Programs:
+To verify that the various installed programs have been installed correctly, you can run each of the programs on the sample input data we have in our input folder. The various commands for running each MSA is as follows:
 
+MAAFT
+To run MAAFT, type in your bash shell:
+```bash
+maaft --auto input.fasta > output.fasta
+```
+The auto tag will automatically determine which algorithm will be used to run the MSA on the input data.
+input.fasta refers to a fasta file that contains the sequences you want to align
+This command will output a fasta file 
+
+Muscle:
+To run Muscle, type in your bash shell:
+```bash
+muscle -align input.fasta -output aligned_output.fa
+```
+The align tag is the default algorithm that is used for Muscle.
+Input.fasta refers to the input fasta file that contains the sequences to be aligned, and aligned_output.fa is the output file which contains the alignments
+
+Clustal Omega:
+To run Clustal Omega, type in your bash shell:
+```bash
+clustalo -i input.fasta -o aligned_output.fasta
+````
+The -i 
