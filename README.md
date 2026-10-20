@@ -34,9 +34,10 @@ conda config --set channel_priority strict
 ```
 
 Muscle: 
+Note: Due to Muscle 5.3 not working properly with conda, we elected to use version 5.1 of Muscle. These instructions are for Muscle 5.3. 
 To install Muscle, run the following shell command in your terminal:
 ```bash
-conda install -c bioconda muscle
+conda install -c bioconda muscle=5.1
 ```
 
 MAAFT:
@@ -61,7 +62,7 @@ Our benchmarking project uses Snakemake to run all the alignment tests via one s
 ```bash
 conda create -c conda-forge -c bioconda -c nodefaults -n snakemake snakemake
 ```
-You will have to activate snakemake environment afterwards to run our snakemake file:
+You will have to activate a snakemake environment afterwards to run our snakemake file:
 ```bash
 conda activate snakemake
 ```
