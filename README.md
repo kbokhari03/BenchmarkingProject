@@ -1,7 +1,7 @@
 # BenchmarkingProject
-Repo for benchmarking various different MSA programs
+Repo for benchmarking various different Multiple Sequence Alignment (MSA) programs.
 
-Hello! This README will include instruction on installing all the MSA alignment programs and other dependencies necessary for running our project! 
+Hello! This README will include instruction on installing all the MSA alignment programs and other dependencies necessary for running our project. 
 
 This project will require the user to download various MSA programs. Instructions to installing the various MSA programs are listed as follows:
 
@@ -16,11 +16,11 @@ curl -O https://repo.anaconda.com/archive/Anaconda3-2026.07-1-Linux-x86_64.sh
 ```bash
 bash ~/Anaconda3-2026.07-1-Linux-x86_64.sh
 ```
-Note: For this benchmarking project, the full Anaconda Distribution was installed. Miniconda should work  for this as well, however, the instructions are being written with the full Anaconda distribution in mind
+Note: For this benchmarking project, the full Anaconda Distribution was installed. Miniconda should work  for this as well, however, the instructions are written with the full Anaconda distribution in mind.
 
-Follow the prompts given and accept all the defaults
+Follow the prompts given and accept all the defaults.
 
-Once Anaconda is done installing, close and re-open your terminal window
+Once Anaconda is done installing, close and re-open your terminal window.
 
 To verify that Conda was successfully installed, run the command conda list. A list of installed packages should appear if installed correctly.
 
@@ -35,7 +35,7 @@ conda config --set channel_priority strict
 ```
 
 Muscle: 
-Note: Due to Muscle 5.3 not working properly with conda, we elected to use version 5.1 of Muscle. These instructions are for Muscle 5.3. 
+Note: Due to Muscle 5.3 not working properly with conda, we elected to use version 5.1 of Muscle. These instructions are for Muscle 5.1. 
 To install Muscle, run the following shell command in your terminal:
 ```bash
 conda install -c bioconda muscle=5.1
@@ -59,7 +59,7 @@ To install Kalign, run the following shell command in your terminal:
 conda install bioconda::kalign2
 ```
 Snakemake:
-Our benchmarking project uses Snakemake to run all the alignment tests via one simple Snakemake file. To install Snakemake via conda, run the following command:
+Our benchmarking project uses Snakemake to run all the alignment tests in one simple Snakemake file. To install Snakemake via conda, run the following command:
 ```bash
 conda create -c conda-forge -c bioconda -c nodefaults -n snakemake snakemake
 ```
@@ -76,8 +76,8 @@ To run MAAFT, type in your bash shell:
 maaft --auto input.fasta > output.fasta
 ```
 The auto tag will automatically determine which algorithm will be used to run the MSA on the input data.
-input.fasta refers to a fasta file that contains the sequences you want to align
-This command will output a fasta file 
+input.fasta refers to a fasta file that contains the sequences you want to align.
+This command will output a fasta file. 
 
 Muscle:
 To run Muscle, type in your bash shell:
@@ -85,21 +85,21 @@ To run Muscle, type in your bash shell:
 muscle -align input.fasta -output aligned_output.fa
 ```
 The align tag is the default algorithm that is used for Muscle.
-Input.fasta refers to the input fasta file that contains the sequences to be aligned, and aligned_output.fa is the output file which contains the alignments
+Input.fasta refers to the input fasta file that contains the sequences to be aligned, and aligned_output.fa is the output file which contains the alignments.
 
 Clustal Omega:
 To run Clustal Omega, type in your bash shell:
 ```bash
 clustalo -i input.fasta -o aligned_output.fasta
 ````
-The -i refers to the input file, the -o refers to the output tag
+The -i refers to the input file, the -o refers to the output tag.
 
 Kalign: 
 To run Kalign, type in your bash shell:
 ```bash
 kalign -i input.fasta -o output.fasta
 ```
-The -i refers to the input file, the -o refers to your output file
+The -i refers to the input file, the -o refers to your output file.
 
 Snakefile:
 Our snakemake file will call all the MSAs on our balibase unaligned fasta file and output a text file with benchmarking stats for each alignment it performs. NOTE: Snakemake file is still a work in progress and is not completed as of yet. 
