@@ -4,6 +4,7 @@ SAMPLES, = glob_wildcards("Input_Data/{sample}.fasta")
 rule all:
     input:
         expand("output_data/{sample}.fa", sample=SAMPLES)
+        expand("output_data/{sample}_muscle.fasta", sample=SAMPLES)
 
 rule run_omega_alignments:
     input:
@@ -15,7 +16,15 @@ rule run_omega_alignments:
     shell:
         "clustalo -i {input} -o {output}.fa"
 
-
+rule run_muscle_alignments:
+    input:
+        "Input_data/{sample}.fasta"
+    output:
+        "output_data/{sample}_muscle.fasta"
+    benchmark:
+        "benchmarks/{sample}_musclebenchmark.tsv"
+    shell:
+        "muscle -align {sample}.fasta -output {sample}_muscle.fasta"
 
 
 
