@@ -3,7 +3,7 @@ SAMPLES, = glob_wildcards("Input_Data/{sample}.fasta")
 
 rule all:
     input:
-        expand("output_data/{sample}.fa", sample=SAMPLES)
+        expand("output_data/{sample}.fa", sample=SAMPLES),
         expand("output_data/{sample}_muscle.fasta", sample=SAMPLES)
 
 rule run_omega_alignments:
@@ -24,7 +24,7 @@ rule run_muscle_alignments:
     benchmark:
         "benchmarks/{sample}_musclebenchmark.tsv"
     shell:
-        "muscle -align {sample}.fasta -output {sample}_muscle.fasta"
+        "muscle -align {input} -output {output}_muscle.fasta"
 
 rule run_kalign_alignments:
     input:
