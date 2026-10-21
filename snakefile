@@ -18,7 +18,7 @@ rule run_omega_alignments:
 
 rule run_muscle_alignments:
     input:
-        "Input_data/{sample}.fasta"
+        "Input_Data/{sample}.fasta"
     output:
         "output_data/{sample}_muscle.fasta"
     benchmark:
@@ -26,5 +26,22 @@ rule run_muscle_alignments:
     shell:
         "muscle -align {sample}.fasta -output {sample}_muscle.fasta"
 
+rule run_kalign_alignments:
+    input:
+        "Input_Data/{sample}.fasta"
+    output:
+        "output_data/{sample}_kalign.fa"
+    benchmark:
+        "benchmarks/{sample}_kalignbenchmark.tsv"
+    shell:
+        "kalign -i {input} -o {output}"
 
-
+rule run_MAAFT_alignments:
+    input:
+        "Input_Data/{sample}.fasta"
+    output:
+        "output_data/{sample}_maaft.fa"
+    benchmark:
+        "benchmarks/{sample}_maaft.tsv"
+    shell:
+        "maaft {input} > {output}"
