@@ -106,5 +106,5 @@ Our snakemake file will call all the MSAs on our balibase unaligned fasta file a
 
 To run our snakemake file on any input data you would like to test, move the files into our input file folder, and then enter the following bash commmand:
 ```bash
-snakemake
+snakemake --cores
 ```
