@@ -6,13 +6,16 @@ SAMPLES, = glob_wildcards(UNALIGNED_FILE)
 
 ALIGNERS = ["omega", "muscle", "kalign", "mafft"]
 
+wildcard_constraints:
+    aligner = "omega|muscle|kalign|mafft"
+
 rule all:
     input:
-        expand("output_data/{sample}_{aligner}.fa", sample = SAMPLES, aligner = ALIGNERS)
+        "AlignmentScores.tsv"
 
 rule clean:
     shell:
-        "rm -rf output_data/ benchmarks/"
+        "rm -rf output_data/ benchmarks/ scores/ AlignmentScores.tsv"
 
 rule run_omega_alignments:
     input:
@@ -53,3 +56,27 @@ rule run_MAAFT_alignments:
         "benchmarks/{sample}_mafft.tsv"
     shell:
         "mafft {input} > {output}"
+
+rule score_alignment:
+    input:
+        aln = "output_data/{sample}_{aligner}.fa",
+        ref = "Input_Data/{sample}_reference.faa"
+    output:
+        "scores/{sample}_{aligner}.tsv"
+    shell:
+        """
+        sop=$(phykit sum_of_pairs_score {input.aln} -r {input.ref})
+        cs=$(phykit column_score {input.aln} -r {input.ref})
+        echo -e "{wildcards.sample}\t{wildcards.aligner}\t$sop\t$cs" > {output}
+        """
+
+rule collect_scores:
+    input:
+        expand("scores/{sample}_{aligner}.tsv", sample=SAMPLES, aligner=ALIGNERS)
+    output:
+        "AlignmentScores.tsv"
+    shell:
+        """
+        echo -e "BAliBASE_id\taligner\tsop\tcs" > {output}
+        cat {input} >> {output}
+        """
