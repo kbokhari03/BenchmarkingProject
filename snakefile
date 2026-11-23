@@ -1,5 +1,8 @@
 
-SAMPLES, = glob_wildcards("Input_Data/{sample}.fasta")
+
+UNALIGNED_FILE = "Input_Data/{sample}_query.faa"
+
+SAMPLES, = glob_wildcards(UNALIGNED_FILE)
 
 ALIGNERS = ["omega", "muscle", "kalign", "mafft"]
 
@@ -13,7 +16,7 @@ rule clean:
 
 rule run_omega_alignments:
     input:
-        "Input_Data/{sample}.fasta"
+        UNALIGNED_FILE
     output:
         "output_data/{sample}_omega.fa"
     benchmark:
@@ -23,7 +26,7 @@ rule run_omega_alignments:
 
 rule run_muscle_alignments:
     input:
-        "Input_Data/{sample}.fasta"
+        UNALIGNED_FILE
     output:
         "output_data/{sample}_muscle.fa"
     benchmark:
@@ -33,7 +36,7 @@ rule run_muscle_alignments:
 
 rule run_kalign_alignments:
     input:
-        "Input_Data/{sample}.fasta"
+        UNALIGNED_FILE
     output:
         "output_data/{sample}_kalign.fa"
     benchmark:
@@ -43,7 +46,7 @@ rule run_kalign_alignments:
 
 rule run_MAAFT_alignments:
     input:
-        "Input_Data/{sample}.fasta"
+        UNALIGNED_FILE
     output:
         "output_data/{sample}_mafft.fa"
     benchmark:
